@@ -5,12 +5,12 @@ body{
 header, footer{ 
     color: white;
     text-align: center;
-    background-color: black;
+    background-color: #333;
 }
 
 nav ul{ 
     text-align: center;
-    background-color: black;
+    background-color: #444;
 }
 
 nav a{
@@ -22,6 +22,7 @@ nav a{
 .destaque{ 
     text-align: center;
     background-color: gray;
+    background-color: #f2f2f2;
 }
 
 .destaque img{ 
@@ -29,7 +30,9 @@ nav a{
     max-height: 300px;
 }
 
-.produtos{ }
+.produtos{ 
+    background-color: #fff; 
+}
 
 .produto{ }
 
