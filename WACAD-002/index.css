@@ -1,0 +1,43 @@
+body{ 
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header, footer{ 
+    color: white;
+    text-align: center;
+    background-color: black;
+}
+
+nav ul{ 
+    text-align: center;
+    background-color: black;
+}
+
+nav a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.destaque{ 
+    text-align: center;
+    background-color: gray;
+}
+
+.destaque img{ 
+    width: 100%;
+    max-height: 300px;
+}
+
+.produtos{ }
+
+.produto{ }
+
+.produto > .img_produto{ 
+    width: 200px;
+    height: 200px;
+}
+
+.produto h3{ 
+    font-size: 24px;
+}
