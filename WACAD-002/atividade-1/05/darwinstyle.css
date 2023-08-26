@@ -1,0 +1,36 @@
+body{
+  background-color: beige;
+}
+
+h1{
+  font-family: Verdana;
+  font-size: 36pt;
+  color: brown;
+}
+
+h2{
+  font-family: Verdana;
+  font-size: 20pt;
+  color: sienna;
+}
+
+h3{
+  font-family: Verdana;
+  font-size: 20pt;
+  color: midnightblue;
+}
+
+p{
+  text-indent: 2em;
+  font-family: Arial;
+  color: black;
+}
+
+li{
+  font-family: Verdana;
+  color: darkolivegreen;
+}
+
+li:first-child{
+  background-color: yellow;
+}
