@@ -1,0 +1,35 @@
+a.button7 {
+    display: inline-block;
+    box-sizing: border-box;
+    text-decoration: none; /* permite que as palavras não fique sublinhadas */
+    padding: 15px 40px;
+    margin: 0 5px 5px 0;
+    border-radius: 8px;
+    font-family: sans-serif;
+    font-weight: 400;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    color: #FFFFFF;
+}
+
+.login {
+    background-color: #2979FF;
+}
+
+.register {
+    color: black;
+    background-color: #cccccc
+}
+
+.moddle {
+    background-color: #f6de1e;
+
+}
+
+span {
+    font-size: 3em;
+    padding-right: 15px;
+    margin-right: 10px;
+    border-right: solid 4px rgb(255, 255, 255, 0.5);
+    vertical-align: middle;
+    font-family: 'Trebuchet MS'; /* Não achei a Comic Sans MS */
+}
