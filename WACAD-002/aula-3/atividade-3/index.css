@@ -1,0 +1,23 @@
+@media only screen and (max-width: 1024px) {
+    .exemplo{
+        background-color: blue;
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    .exemplo{
+        background-color: red;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .exemplo{
+        background-color: green;
+    }
+}
+
+@media (orientation: landscape){
+    h2{
+        color: blue;
+    }
+}
