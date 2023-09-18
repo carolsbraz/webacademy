@@ -1,0 +1,41 @@
+html, body{
+    padding: 20px;
+    background-color: rgba(234, 234, 234, 0.601);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+div.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+div.container h1{
+    color: rgb(19, 43, 79);
+}
+
+div.container input{
+    border: 0;
+    padding: 10px;
+    width: 50px;
+    border-radius: 4px;
+    box-shadow: 1px 1px 1px rgba(188, 188, 188, 0.184);
+}
+
+div.container button{
+    border: 1px rgba(19, 43, 79, 0) solid;
+    background-color: rgb(19, 43, 79);
+    color: white;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+div.container button:hover{
+    background-color: rgba(234, 234, 234, 0.601);
+    color: rgb(19, 43, 79);
+    border: 1px rgb(19, 43, 79) solid;
+}
+
