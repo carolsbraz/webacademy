@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --body-color: #d5d5d5;
+
+    --primary-color: #695CFE;
+    
+    --text-color: #373737;
+
+    --card-color-1: #e5d6e7;
+    --card-color-2: #cddcff;
+    --card-color-3: #d4ffcd;
+    --card-color-4: #fff3cd;
+
+    --transition-02: all 0.2s ease;
+    --transition-03: all 0.3s ease;
+    --transition-04: all 0.4s ease;
+    --transition-05: all 0.5s ease;
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 85%;
+    margin: auto;
+    background: var(--body-color);
+    color: var(--text-color);
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0;
+}
+
+header .btn-add{
+    background-color: #695CFE;
+    padding: 16px 24px;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: var(--transition-03);
+    border: 1px solid var(--primary-color);
+}
+
+header .btn-add:hover{
+    background-color: var(--body-color);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+header .btn-add > i{
+    margin-right: 10px;
+}
+
+section .cards{
+    background-color: #e0e0e0;
+    margin: 20px 0;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 16px;
+    row-gap: 40px;
+    border-radius: 6px;
+}
+
+section .cards .card{
+    padding: 20px;
+    border-radius: 6px;
+}
+
+section .cards .pink{
+    background-color: var(--card-color-1);
+}
+
+section .cards .blue{
+    background-color: var(--card-color-2);
+}
+
+section .cards .green{
+    background-color: var(--card-color-3);
+}
+
+section .cards .yellow{
+    background-color: var(--card-color-4);
+}
+
+section .cards .card p.title{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+section .cards .card p.title{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+section .cards .card p{
+    margin: 0;
+}
+
+section .cards .card p.enfase{
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 536px){
+    header .btn-add > span{
+        display: none;
+    }
+
+    header .btn-add > i{
+        margin-right: 0;
+    }
+    
+    section .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width: 536px) and (max-width: 750px){
+    section .cards {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 751px) and (max-width: 999px){
+    section .cards {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 1000px){
+    section .cards {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}

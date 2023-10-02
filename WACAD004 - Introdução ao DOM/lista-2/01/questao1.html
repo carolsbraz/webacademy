@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Questão 01</title>
+</head>
+
+<body>
+  <h1>Várias listas</h1>
+
+  <div>
+    <p id="lista-titulo" name="lista">Lista de itens:</p>
+  </div>
+
+  <ul id="lista-itens-1">
+    <li id="one" class="hot">item a</li>
+    <li id="two" class="hot">item b</li>
+    <li id="three" class="hot">item c</li>
+    <li id="four">item d</li>
+  </ul>
+  <script>
+    const lista = document.getElementById('lista-itens-1');
+
+    console.log("===== QUESTÃO A =====");
+
+    console.log("Primeiro filho:");
+    console.log(lista.firstElementChild);
+    console.log("Segundo filho:")
+    console.log(lista.lastElementChild);
+
+    console.log("===== QUESTÃO B =====");
+    console.log("Elemento pai:")
+    console.log(lista.parentElement);
+
+    console.log("===== QUESTÃO C =====");
+    console.log("Filhos:")
+    const filhos = lista.childNodes;
+    filhos.forEach(element => {
+      console.log(element);
+    });
+
+    console.log("===== QUESTÃO D =====");
+    console.log("Irmãos do elemento com id 'two':")
+    const two = document.getElementById('two');
+    console.log(two);
+  </script>
+</body>
+
+</html>

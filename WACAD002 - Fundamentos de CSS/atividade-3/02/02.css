@@ -1,0 +1,31 @@
+.header {
+    font-family: monospace;
+    background: #0B6D1E;
+    display: flex;
+    padding: 8px;
+    justify-content: space-between;
+}
+
+
+.logo {
+    font-size: 48px;
+    font-weight: 900;
+    color: thistle;
+    background: white;
+    padding: 4px 32px;
+}
+
+ul {
+    /* remove os pontos da lista de items*/
+    list-style-type: none;
+    display: flex;
+    gap: 8px;
+}
+
+a {
+    font-size: 22px;
+    background: white;
+    padding: 8px;
+    /* remove o sublinhado dos links */
+    text-decoration: none;
+}

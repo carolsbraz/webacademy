@@ -1,0 +1,17 @@
+{
+  "name": "wacad-007",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "nodejs course from webacademy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch --no-warnings index.js",
+    "start:prod": "node index.js"
+  },
+  "author": "Caroline Braz",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2"
+  }
+}
