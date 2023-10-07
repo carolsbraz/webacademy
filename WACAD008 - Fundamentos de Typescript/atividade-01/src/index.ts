@@ -4,8 +4,6 @@ type user = [string, string, reminder[]];
 
 const reminders: reminder[] = [];
 
-let caroline: user = ["Caroline", "1234", reminders];
-
 const add = document.getElementById("addButton");
 
 add?.addEventListener("click", () => {
