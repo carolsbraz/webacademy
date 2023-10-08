@@ -1,4 +1,7 @@
 "use strict";
+let turmas = new Array();
+let numTurmas = 0;
+let numAlunos = 0;
 class Aluno {
     constructor(id, nome, idade, altura, peso) {
         this.id = id;
@@ -70,33 +73,150 @@ class Turma {
         this.listaAlunos.forEach((aluno) => {
             soma += aluno.getIdade;
         });
-        return soma / this.getNumAlunos;
+        let media = soma / this.getNumAlunos;
+        if (isNaN(media)) {
+            return 0;
+        }
+        else {
+            return media;
+        }
     }
     get getMediaAlturas() {
         let soma = 0;
         this.listaAlunos.forEach((aluno) => {
             soma += aluno.getAltura;
         });
-        return soma / this.getNumAlunos;
+        let media = soma / this.getNumAlunos;
+        if (isNaN(media)) {
+            return 0;
+        }
+        else {
+            return media;
+        }
     }
     get getMediaPesos() {
         let soma = 0;
         this.listaAlunos.forEach((aluno) => {
             soma += aluno.getPeso;
         });
-        return soma / this.getNumAlunos;
+        let media = soma / this.getNumAlunos;
+        if (isNaN(media)) {
+            return 0;
+        }
+        else {
+            return media;
+        }
     }
 }
-const webacademy = new Turma(1, "WebAcademy");
-const aluno1 = new Aluno(1, "Caroline", 21, 1.6, 40);
-const aluno2 = new Aluno(2, "Caroline", 21, 1.6, 40);
-const aluno3 = new Aluno(3, "Caroline", 21, 1.6, 40);
-const aluno4 = new Aluno(4, "Caroline", 21, 1.6, 40);
-webacademy.adicionarAluno(aluno1);
-webacademy.adicionarAluno(aluno2);
-webacademy.adicionarAluno(aluno3);
-webacademy.adicionarAluno(aluno4);
-console.log(webacademy.getListaAlunos);
-console.log(webacademy.getMediaAlturas);
-console.log(webacademy.getMediaIdades);
-console.log(webacademy.getMediaPesos);
+function listaAlunos(aluno) {
+    const tr = document.createElement("tr");
+    const id = document.createElement("td");
+    id.innerText = aluno.getId + "";
+    const nome = document.createElement("td");
+    nome.innerText = aluno.getNome + "";
+    const idade = document.createElement("td");
+    idade.innerText = aluno.getIdade + "";
+    const altura = document.createElement("td");
+    altura.innerText = aluno.getAltura + "";
+    const peso = document.createElement("td");
+    peso.innerText = aluno.getPeso + "";
+    tr.appendChild(id);
+    tr.appendChild(nome);
+    tr.appendChild(idade);
+    tr.appendChild(altura);
+    tr.appendChild(peso);
+    return tr;
+}
+function listaTurmas() {
+    const div = document.createElement("div");
+    div.classList.add("turma");
+    const listTurmas = document.getElementById("turmas");
+    listTurmas.innerHTML = "";
+    turmas.forEach((turma) => {
+        const nomeTurma = document.createElement("h4");
+        nomeTurma.innerHTML = turma.getNome;
+        const qtdeAlunos = document.createElement("p");
+        qtdeAlunos.innerHTML = "<b>Quantidade de alunos: </b>" + turma.getNumAlunos;
+        const mediaIdade = document.createElement("p");
+        mediaIdade.innerHTML = "<b>Média de idades: </b>" + turma.getMediaIdades;
+        const mediaAltura = document.createElement("p");
+        mediaAltura.innerHTML = "<b>Média de altura: </b>" + turma.getMediaAlturas;
+        const mediaPeso = document.createElement("p");
+        mediaPeso.innerHTML = "<b>Média de peso: </b>" + turma.getMediaPesos;
+        const table = document.createElement("table");
+        table.classList.add("table");
+        table.classList.add("table-striped");
+        const thead = document.createElement("thead");
+        const tr = document.createElement("tr");
+        const id = document.createElement("th");
+        id.innerText = "#";
+        const nome = document.createElement("th");
+        nome.innerText = "Nome";
+        const idade = document.createElement("th");
+        idade.innerText = "Idade";
+        const altura = document.createElement("th");
+        altura.innerText = "Altura";
+        const peso = document.createElement("th");
+        peso.innerText = "Peso";
+        tr.appendChild(id);
+        tr.appendChild(nome);
+        tr.appendChild(idade);
+        tr.appendChild(altura);
+        tr.appendChild(peso);
+        thead.appendChild(tr);
+        table.appendChild(thead);
+        const tbody = document.createElement("tbody");
+        turma.getListaAlunos.forEach((aluno) => {
+            tbody.appendChild(listaAlunos(aluno));
+        });
+        table.appendChild(tbody);
+        const br = document.createElement("br");
+        div.appendChild(nomeTurma);
+        div.appendChild(qtdeAlunos);
+        div.appendChild(mediaIdade);
+        div.appendChild(mediaAltura);
+        div.appendChild(mediaPeso);
+        div.appendChild(table);
+        div.appendChild(br);
+        listTurmas === null || listTurmas === void 0 ? void 0 : listTurmas.appendChild(div);
+    });
+}
+const addTurma = document.getElementById("btn-add-turma");
+addTurma === null || addTurma === void 0 ? void 0 : addTurma.addEventListener("click", () => {
+    const nome = document.getElementById("in-nome-turma");
+    const turma = new Turma(numTurmas++, nome.value);
+    turmas.push(turma);
+    const selectTurmas = (document.getElementById("select-turmas"));
+    selectTurmas.innerHTML = "";
+    turmas.forEach((turma) => {
+        const opt = document.createElement("option");
+        opt.setAttribute("value", turma.getId + "");
+        opt.innerText = turma.getNome;
+        selectTurmas.appendChild(opt);
+    });
+    nome.value = "";
+    listaTurmas();
+});
+const addAluno = document.getElementById("btn-add-aluno");
+addAluno === null || addAluno === void 0 ? void 0 : addAluno.addEventListener("click", () => {
+    const selectTurmas = (document.getElementById("select-turmas"));
+    const nome = document.getElementById("in-nome-aluno");
+    const idade = document.getElementById("in-idade-aluno");
+    const altura = document.getElementById("in-altura-aluno");
+    const peso = document.getElementById("in-peso-aluno");
+    const idadeNumber = +idade.value;
+    const alturaNumber = +altura.value;
+    const pesoNumber = +peso.value;
+    const aluno = new Aluno(numAlunos++, nome.value, idadeNumber, alturaNumber, pesoNumber);
+    turmas.forEach((turma) => {
+        if (turma.getId == +selectTurmas.value) {
+            turma.adicionarAluno(aluno);
+        }
+    });
+    nome.value = "";
+    idade.value = "";
+    altura.value = "";
+    peso.value = "";
+    listaTurmas();
+});
+listaTurmas();

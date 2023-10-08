@@ -38,6 +38,10 @@ header{
     padding: 30px 0;
 }
 
+header div.buttons{
+    width: auto;
+}
+
 header .btn-add{
     background-color: #695CFE;
     padding: 16px 24px;
@@ -58,55 +62,8 @@ header .btn-add > i{
     margin-right: 10px;
 }
 
-section .cards{
-    background-color: #e0e0e0;
-    margin: 20px 0;
-    padding: 20px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 16px;
-    row-gap: 40px;
-    border-radius: 6px;
-}
-
-section .cards .card{
-    padding: 20px;
-    border-radius: 6px;
-}
-
-section .cards .pink{
-    background-color: var(--card-color-1);
-}
-
-section .cards .blue{
-    background-color: var(--card-color-2);
-}
-
-section .cards .green{
-    background-color: var(--card-color-3);
-}
-
-section .cards .yellow{
-    background-color: var(--card-color-4);
-}
-
-section .cards .card p.title{
-    font-weight: 600;
-    font-size: 20px;
-}
-
-section .cards .card p.title{
-    font-weight: 600;
-    font-size: 20px;
-}
-
-section .cards .card p{
-    margin: 0;
-}
-
-section .cards .card p.enfase{
-    font-weight: 500;
-    margin-top: 10px;
+.table > :not(caption) > * > *{
+    background-color: rgba(255, 243, 205, 0);
 }
 
 @media screen and (max-width: 536px){
@@ -120,23 +77,5 @@ section .cards .card p.enfase{
     
     section .cards {
         grid-template-columns: 1fr;
-    }
-}
-
-@media screen and (min-width: 536px) and (max-width: 750px){
-    section .cards {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media screen and (min-width: 751px) and (max-width: 999px){
-    section .cards {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-}
-
-@media screen and (min-width: 1000px){
-    section .cards {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
