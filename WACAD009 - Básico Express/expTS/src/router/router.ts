@@ -4,6 +4,7 @@ import mainController from '../controllers/main';
 const router = express.Router();
 
 router.get('/', mainController.index);
+router.get('/ui', mainController.ui);
 router.get('/about', mainController.about);
 router.get('/hb1', mainController.hb1);
 router.get('/hb2', mainController.hb2);

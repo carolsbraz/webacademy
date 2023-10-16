@@ -25,6 +25,10 @@ const about = (req: Request, res: Response) => {
   res.send('Página sobre');
 };
 
+const ui = (req: Request, res: Response) => {
+  res.render('main/ui');
+};
+
 const hb1 = (req: Request, res: Response) => {
   res.render('main/hb1', {
     mensagem: 'Bem vindo ao WebAcademy, você está aprendendo Express passando mensagens',
@@ -69,4 +73,4 @@ const paginaComImagem = (req: Request, res: Response) => {
   res.render('main/paginaComImagem');
 };
 
-export default { lorem, index, about, hb1, hb2, hb3, hb4, paginaComImagem };
+export default { lorem, index, about, ui, hb1, hb2, hb3, hb4, paginaComImagem };
