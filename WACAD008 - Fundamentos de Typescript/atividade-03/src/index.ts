@@ -97,11 +97,17 @@ class Carrinho<T> {
 
 const carrinho = new Carrinho<Produto>(1);
 
-carrinho.adicionarProduto(new TV(1, "a", "a", 2, 2, 2));
+carrinho.adicionarProduto(
+  new TV(1, "Modelo A", "Fabricante A", 2000, 1240, 24)
+);
 
-carrinho.adicionarProduto(new Celular(2, "a", "a", 2, 2));
+carrinho.adicionarProduto(
+  new Celular(2, "Modelo B", "Fabricante B", 3000, 128)
+);
 
-carrinho.adicionarProduto(new TV(3, "a", "a", 2, 2, 2));
+carrinho.adicionarProduto(
+  new TV(3, "Modelo C", "Fabricante C", 3020, 2000, 55)
+);
 
 const produtos: Array<Produto> = carrinho.getCarrinho;
 

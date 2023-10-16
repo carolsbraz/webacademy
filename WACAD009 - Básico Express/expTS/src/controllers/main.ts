@@ -26,13 +26,13 @@ const about = (req: Request, res: Response) => {
 };
 
 const hb1 = (req: Request, res: Response) => {
-  res.render('hb1', {
+  res.render('main/hb1', {
     mensagem: 'Bem vindo ao WebAcademy, você está aprendendo Express passando mensagens',
   });
 };
 
 const hb2 = (req: Request, res: Response) => {
-  res.render('hb2', {
+  res.render('main/hb2', {
     poweredByExpress: true,
     name: 'Express',
     type: 'Framework',
@@ -45,7 +45,7 @@ const hb3 = (req: Request, res: Response) => {
     { nome: 'Moisés Carvalho', sala: 1339 },
     { nome: 'Alexandre Passito', sala: 1340 },
   ];
-  res.render('hb3', {
+  res.render('main/hb3', {
     profs,
   });
 };
@@ -60,9 +60,13 @@ const hb4 = (req: Request, res: Response) => {
     { name: 'Docker', type: 'Virtualization', poweredByNodejs: false },
     { name: 'Sequelize', type: 'ORM tool', poweredByNodejs: true },
   ];
-  res.render('hb4', {
+  res.render('main/hb4', {
     technologies,
   });
 };
 
-export default { lorem, index, about, hb1, hb2, hb3, hb4 };
+const paginaComImagem = (req: Request, res: Response) => {
+  res.render('main/paginaComImagem');
+};
+
+export default { lorem, index, about, hb1, hb2, hb3, hb4, paginaComImagem };
