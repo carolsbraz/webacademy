@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Cliente {
+  cpf          String     @id
+  primeiroNome String
+  meioNome     String
+  ultimoNome   String
+  nascimento   DateTime
+  telefone     String
+  enderecos    Endereco[]
+}
+
+model Endereco {
+  id         Int     @id @default(autoincrement())
+  rua        String
+  bairro     String
+  numero     Int
+  cidade     String
+  estado     String
+  cliente    Cliente @relation(fields: [cpfCliente], references: [cpf])
+  cpfCliente String
+}
+
+model Categoria {
+  id            Int            @id @default(autoincrement())
+  nome          String
+  subcategorias Subcategoria[]
+}
+
+model Subcategoria {
+  id          Int       @id @default(autoincrement())
+  nome        String
+  categoria   Categoria @relation(fields: [idCategoria], references: [id])
+  idCategoria Int
+  produtos    Produto[]
+}
+
+model Produto {
+  id             Int          @id @default(autoincrement())
+  quantidade     Int          @default(0)
+  modelo         String
+  fabricante     String
+  preco          Decimal      @db.Decimal(9, 2)
+  subcategoria   Subcategoria @relation(fields: [idSubcategoria], references: [id])
+  idSubcategoria Int
+  series         Serie[]
+  lista          Lista[]
+}
+
+model Serie {
+  id        Int     @id @default(autoincrement())
+  numero    String
+  produto   Produto @relation(fields: [idProduto], references: [id])
+  idProduto Int
+}
+
+model Compra {
+  id             Int             @id @default(autoincrement())
+  data           DateTime        @default(now())
+  desconto       Float
+  formaPagamento formasPagamento
+  totalCompra    Decimal         @db.Decimal(9, 2)
+  lista          Lista[]
+}
+
+model Lista {
+  id        Int     @id @default(autoincrement())
+  produto   Produto @relation(fields: [idProduto], references: [id])
+  idProduto Int
+  compra    Compra  @relation(fields: [idCompra], references: [id])
+  idCompra  Int
+}
+
+enum formasPagamento {
+  Debito
+  Credito
+  Pix
+  Boleto
+}
