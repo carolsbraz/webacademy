@@ -54,7 +54,7 @@ model Produto {
   subcategoria   Subcategoria @relation(fields: [idSubcategoria], references: [id])
   idSubcategoria Int
   series         Serie[]
-  listas         Lista[]
+  lista          Lista[]
 }
 
 model Serie {
@@ -70,15 +70,15 @@ model Compra {
   desconto       Float
   formaPagamento formasPagamento
   totalCompra    Decimal         @db.Decimal(9, 2)
-  lista          Lista           @relation(fields: [listaId], references: [id])
-  listaId        Int             @unique
+  lista          Lista[]
 }
 
 model Lista {
   id        Int     @id @default(autoincrement())
   produto   Produto @relation(fields: [idProduto], references: [id])
   idProduto Int
-  compra    Compra?
+  compra    Compra  @relation(fields: [idCompra], references: [id])
+  idCompra  Int
 }
 
 enum formasPagamento {

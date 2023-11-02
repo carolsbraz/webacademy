@@ -68,9 +68,7 @@ CREATE TABLE `Compra` (
     `desconto` DOUBLE NOT NULL,
     `formaPagamento` ENUM('Debito', 'Credito', 'Pix', 'Boleto') NOT NULL,
     `totalCompra` DECIMAL(9, 2) NOT NULL,
-    `listaId` INTEGER NOT NULL,
 
-    UNIQUE INDEX `Compra_listaId_key`(`listaId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -78,6 +76,7 @@ CREATE TABLE `Compra` (
 CREATE TABLE `Lista` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `idProduto` INTEGER NOT NULL,
+    `idCompra` INTEGER NOT NULL,
 
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
@@ -95,7 +94,7 @@ ALTER TABLE `Produto` ADD CONSTRAINT `Produto_idSubcategoria_fkey` FOREIGN KEY (
 ALTER TABLE `Serie` ADD CONSTRAINT `Serie_idProduto_fkey` FOREIGN KEY (`idProduto`) REFERENCES `Produto`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Compra` ADD CONSTRAINT `Compra_listaId_fkey` FOREIGN KEY (`listaId`) REFERENCES `Lista`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Lista` ADD CONSTRAINT `Lista_idProduto_fkey` FOREIGN KEY (`idProduto`) REFERENCES `Produto`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
-ALTER TABLE `Lista` ADD CONSTRAINT `Lista_idProduto_fkey` FOREIGN KEY (`idProduto`) REFERENCES `Produto`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+ALTER TABLE `Lista` ADD CONSTRAINT `Lista_idCompra_fkey` FOREIGN KEY (`idCompra`) REFERENCES `Compra`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
