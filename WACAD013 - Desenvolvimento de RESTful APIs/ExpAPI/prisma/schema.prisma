@@ -1,22 +1,42 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+version: "3.8"
 
-generator client {
-  provider = "prisma-client-js"
-}
+services:
+  frontend:
+    depends_on:
+      - backend
+    build: ./webacademy-livros-frontend
+    ports:
+      - 3000:3000
 
-model Produto {
-  id        String   @id @default(uuid()) @db.Char(40)
-  nome      String   @unique @db.VarChar(100)
-  preco     Decimal  @db.Decimal(9, 2)
-  estoque   Int      @db.Int
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
+  backend:
+    depends_on:
+      - bdcontainer
+    build: ./webacademy-livros-backend
+    ports:
+      - 3001:3001
 
-  @@map("produto")
-}
+  bdcontainer:
+    container_name: bdcontainer
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass2023
+    volumes:
+      - vol_mysql:/var/lib/mysql
 
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-}
+  bdguicontainer:
+    container_name: bdguicontainer
+    image: phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=bdcontainer
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=pass2023
+    depends_on:
+      - bdcontainer
+
+volumes:
+  vol_mysql:
