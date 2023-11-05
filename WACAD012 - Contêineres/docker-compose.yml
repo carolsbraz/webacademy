@@ -1,0 +1,46 @@
+version: "3.8"
+
+services:
+
+  bdcontainer:
+    container_name: bdcontainer
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=pass2023
+    volumes:
+      - vol_mysql:/var/lib/mysql
+
+  bdguicontainer:
+    container_name: bdguicontainer
+    image: phpmyadmin:latest
+    ports:
+      - 8080:80
+    environment:
+      - PMA_HOST=bdcontainer
+      - PMA_PORT=3306
+      - PMA_USER=root
+      - PMA_PASSWORD=pass2023
+    depends_on:
+      - bdcontainer
+
+  frontend:
+    depends_on:
+      - backend
+    build: ./webacademy-livros-frontend
+    ports:
+      - 80:80
+
+  backend:
+    depends_on:
+      - bdcontainer
+    build: ./webacademy-livros-backend
+    ports:
+      - 4444:4444
+
+
+
+
+volumes:
+  vol_mysql:
