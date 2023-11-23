@@ -1,0 +1,19 @@
+.card{
+    width: 100px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+
+.movieName{
+    font-size: 16px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.586);
+}
+
