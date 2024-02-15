@@ -1,0 +1,6 @@
+.custom-card {
+  width: 150px; /* Ajuste a largura conforme desejado */
+  height: auto; /* Altura automática, pode ser ajustada conforme necessário */
+  margin: 10px; /* Ajuste a margem para manter o espaçamento entre os cartões */
+  padding: 10px; /* Ajuste o padding para otimizar o espaço interno */
+}
